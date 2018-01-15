@@ -6,7 +6,7 @@ Multi-language Char RNN in TensorFlow. You can use this code to generate English
 
 
 ## Requirements
-- Python 2.7.X
+- Python >= 3.5
 - TensorFlow >= 1.2
 
 ## Generate English Text
@@ -14,7 +14,7 @@ Multi-language Char RNN in TensorFlow. You can use this code to generate English
 To train:
 
 ```
-python train.py \
+python3 train.py \
   --input_file data/shakespeare.txt  \
   --name shakespeare \
   --num_steps 50 \
@@ -26,7 +26,7 @@ python train.py \
 To sample:
 
 ```
-python sample.py \
+python3 sample.py \
   --converter_path model/shakespeare/converter.pkl \
   --checkpoint_path model/shakespeare/ \
   --max_length 1000
@@ -57,7 +57,7 @@ I the camples.
 To train:
 
 ```
-python train.py \
+python3 train.py \
   --use_embedding \
   --input_file data/poetry.txt \
   --name poetry \
@@ -70,7 +70,7 @@ python train.py \
 To sample:
 
 ```
-python sample.py \
+python3 sample.py \
   --use_embedding \
   --converter_path model/poetry/converter.pkl \
   --checkpoint_path model/poetry/ \
@@ -92,7 +92,7 @@ Result:
 
 To train (The file "novel.txt" is not included in this repo. You should find one and make sure it is utf-8 encoded!):
 ```
-python train.py \
+python3 train.py \
   --use_embedding True \
   --input_file data/novel.txt \
   --num_steps 80 \
@@ -107,7 +107,7 @@ python train.py \
 
 To sample:
 ```
-python sample.py \
+python3 sample.py \
   --converter_path model/novel/converter.pkl \
   --checkpoint_path  model/novel \
   --use_embedding \
@@ -135,7 +135,7 @@ Result:
 To train:
 
 ```
-python train.py  \
+python3 train.py  \
   --input_file data/jay.txt \
   --num_steps 20 \
   --batch_size 32 \
@@ -149,7 +149,7 @@ python train.py  \
 To sample:
 
 ```
-python sample.py --converter_path model/jay/converter.pkl \
+python3 sample.py --converter_path model/jay/converter.pkl \
   --checkpoint_path  model/jay  \
   --max_length 500  \
   --use_embedding \
@@ -177,7 +177,7 @@ Result:
 To train:
 
 ```
-python train.py  \
+python3 train.py  \
   --input_file data/linux.txt \
   --num_steps 100 \
   --name linux \
@@ -189,7 +189,7 @@ python train.py  \
 To sample:
 
 ```
-python sample.py \
+python3 sample.py \
   --converter_path model/linux/converter.pkl \
   --checkpoint_path  model/linux \
   --max_length 1000 
@@ -228,7 +228,7 @@ int print_init(struct priority *rt)
 
 To train:
 ```
-python train.py  \
+python3 train.py  \
   --input_file data/jpn.txt \
   --num_steps 20 \
   --batch_size 32 \
@@ -240,7 +240,7 @@ python train.py  \
 
 To sample:
 ```
-python sample.py \
+python3 sample.py \
   --converter_path model/jpn/converter.pkl \
   --checkpoint_path model/jpn \
   --max_length 1000 \
