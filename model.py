@@ -4,6 +4,7 @@ import tensorflow as tf
 import numpy as np
 import time
 import os
+from tensorflow.contrib import rnn 
 
 def pick_top_n(preds, vocab_size, top_n=5):
     p = np.squeeze(preds)
@@ -62,12 +63,12 @@ class CharRNN:
     def build_lstm(self):
         # 创建单个cell并堆叠多层
         def get_a_cell(lstm_size, keep_prob):
-            lstm = tf.nn.rnn_cell.BasicLSTMCell(lstm_size)
-            drop = tf.nn.rnn_cell.DropoutWrapper(lstm, output_keep_prob=keep_prob)
+            lstm = rnn.BasicLSTMCell(lstm_size)
+            drop = rnn.DropoutWrapper(lstm, output_keep_prob=keep_prob)
             return drop
 
         with tf.name_scope('lstm'):
-            cell = tf.nn.rnn_cell.MultiRNNCell(
+            cell = rnn.MultiRNNCell(
                 [get_a_cell(self.lstm_size, self.keep_prob) for _ in range(self.num_layers)]
             )
             self.initial_state = cell.zero_state(self.num_seqs, tf.float32)
